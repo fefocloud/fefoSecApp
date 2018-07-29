@@ -10,7 +10,7 @@ Test DevSecOps
 
 
 ```sh
-$ git clone https://github.com/leandrodma/fefocloud.gi
+$ git clone git@github.com:fefocloud/fefoSecApp.git
 $ cd fefocloud/images/jenkinsWithDocker/
 ```
 Second build the jenkins with docker image
