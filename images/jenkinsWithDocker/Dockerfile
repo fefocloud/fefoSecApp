@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts
-MAINTAINER leandrodmax@gmail.com
+LABEL br.com.fefocloud.version="0.0.1-beta"
 
 RUN curl -fsSL https://get.docker.com/ | sh
 RUN systemctl start docker
