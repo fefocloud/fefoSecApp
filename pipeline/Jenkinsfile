@@ -1,9 +1,9 @@
 
 node {
     def app
-
+    
     stage('Clone repository') {
-        git url: 'https://github.com/leandrodma/juice-shop.git'
+        git url:'https://github.com/leandrodma/juice-shop.git'
     }
 
     stage('Build image') {
@@ -18,7 +18,7 @@ node {
 
     stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("build${env.BUILD_NUMBER}")
+            app.push("juice-${env.BUILD_NUMBER}")
         }
     }
 }
