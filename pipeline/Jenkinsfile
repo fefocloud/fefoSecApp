@@ -9,6 +9,10 @@ node {
     stage('Build image') {
         app = docker.build("leandrodma/juice-shop")
     }
+    
+    stage('TangoUp Image') {
+        sh 'docker run -d --rm -p 3000:3000 --name juice-shop leandrodma/juice-shop'
+    }
 
     stage('Test image') {
         app.inside {
@@ -20,5 +24,9 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("juice-${env.BUILD_NUMBER}")
         }
+    }
+
+    stage('TangoDown Image'){
+        sh 'docker rm juice-shop -f'
     }
 }
