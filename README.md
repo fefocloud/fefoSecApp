@@ -23,7 +23,7 @@ sudo docker container run --name jenkins -d --restart=always -p 8080:8080 -p 500
 ```
 ## TODO
 - [x] Clone
-- [ ] SAST
+- [ ] SAST (sonarqube)
 - [x] Build
 - [ ] Functional Tests
 - [ ] Security Tests
