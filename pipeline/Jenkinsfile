@@ -11,7 +11,7 @@ node {
     }
     
     stage('TangoUp Image') {
-        sh 'docker run -d --rm -p 3000:3000 --name juice-shop leandrodma/juice-shop'
+        sh 'docker run -d --rm -p 3000:3000 --name juice-shop-${env.BUILD_NUMBER} leandrodma/juice-shop'
     }
 
     stage('Test image') {
@@ -27,6 +27,6 @@ node {
     }
 
     stage('TangoDown Image'){
-        sh 'docker rm juice-shop -f'
+        sh "docker rm juice-shop-${env.BUILD_NUMBER} -f"
     }
 }
